@@ -1,11 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-<<<<<<< HEAD
-  name: "{{ .Release.Name }}"
-=======
   name: "{{ .Chart.Name }}-{{ .Values.buildNumber}}"
->>>>>>> master
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     env: "{{ .Values.environment }}"

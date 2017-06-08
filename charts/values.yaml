@@ -9,8 +9,7 @@ dnsPolicy: ClusterFirst
 restartPolicy: Always
 terminationGracePeriodSeconds: 30
 image:
-  repository: quay.io/snsumner75/python_api
-  tag: canary.v7
+  account: quay.io/snsumner75
   pullPolicy: IfNotPresent
 service:
   type: LoadBalancer
@@ -23,4 +22,3 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-

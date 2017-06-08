@@ -5,4 +5,8 @@ import datetime
 @app.route('/index')
 def index():
 	timestamp = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+<<<<<<< HEAD
 	return timestamp + " Hello, World! - dev_1\n"
+=======
+	return timestamp + " Hello, World!\n"
+>>>>>>> master

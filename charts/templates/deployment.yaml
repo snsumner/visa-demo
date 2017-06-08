@@ -1,7 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+<<<<<<< HEAD
   name: "{{ .Release.Name }}"
+=======
+  name: "{{ .Chart.Name }}-{{ .Values.buildNumber}}"
+>>>>>>> master
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     env: "{{ .Values.environment }}"
@@ -15,7 +19,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.image.account }}/{{ .Chart.Name }}-{{ .Values.branch }}:{{ .Values.buildNumber }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.service.internalPort }}

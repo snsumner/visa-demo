@@ -23,13 +23,13 @@ node {
      case "dev_1":
          // Roll out to DEV-INT environment
          def namespace = 'dev-int'
-         sh("helm install . --name ${appName}-build${env.BUILD_NUMBER} --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=1")
+         sh("helm install charts/. --name ${appName}-build${env.BUILD_NUMBER} --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=1")
     break
 
     case "rel_1":
         // Roll out to QA environment
         def namespace = 'qa'
-        sh("helm install . --name ${appName}-build${env.BUILD_NUMBER} --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=4")
+        sh("helm install charts/. --name ${appName}-build${env.BUILD_NUMBER} --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=4")
     break
 
     default:

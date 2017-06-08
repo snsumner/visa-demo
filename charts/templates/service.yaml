@@ -1,11 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-<<<<<<< HEAD
-  name: "{{ .Release.Name }}"
-=======
   name: "{{ .Chart.Name }}-{{ .Values.buildNumber}}"
->>>>>>> master
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:

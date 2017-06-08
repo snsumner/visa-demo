@@ -2,6 +2,7 @@ node {
   def project = 'snsumner75'
   def appName = 'visa-demo'
   def feSvcName = "${appName}"
+  def release = env.BRANCH_NAME.replaceAll('_','')
   def imageTag = "quay.io/${project}/${appName}-${env.BRANCH_NAME.toLowerCase()}:${env.BUILD_NUMBER}"
   checkout scm
 
@@ -27,13 +28,13 @@ node {
         case "dev_1":
             // Roll out to DEV-INT environment
             def namespace = 'dev-int'
-            sh("helm upgrade ${appName}-${env.BRANCH_NAME.toLowerCase()} charts/. --install --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=1")
+            sh("helm upgrade ${release} charts/. --install --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=1")
         break
 
         case "rel_1":
             // Roll out to QA environment
             def namespace = 'qa'
-            sh("helm upgrade ${appName}-${env.BRANCH_NAME.toLowerCase()} charts/. --install --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=4")
+            sh("helm upgrade ${release} charts/. --install --namespace ${namespace} --set buildNumber=${env.BUILD_NUMBER},branch=${env.BRANCH_NAME.toLowerCase()},environment=${namespace},replicaCount=4")
         break
 
         default:

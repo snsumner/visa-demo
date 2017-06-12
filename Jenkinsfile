@@ -1,6 +1,6 @@
 node {
   def project = 'snsumner75'
-  def appName = 'visa-demo'
+  def appName = 'cicd-demo'
   def feSvcName = "${appName}"
   def release = env.BRANCH_NAME.replaceAll('_','')
   def imageTag = "quay.io/${project}/${appName}-${env.BRANCH_NAME.toLowerCase()}:${env.BUILD_NUMBER}"

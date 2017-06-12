@@ -9,7 +9,7 @@ dnsPolicy: ClusterFirst
 restartPolicy: Always
 terminationGracePeriodSeconds: 30
 image:
-  account: quay.io/snsumner75
+  organization: quay.io/snsumner75
   pullPolicy: IfNotPresent
 service:
   type: LoadBalancer

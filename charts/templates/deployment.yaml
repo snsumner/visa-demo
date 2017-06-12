@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.account }}/{{ .Chart.Name }}-{{ .Values.branch }}:{{ .Values.buildNumber }}"
+        image: "{{ .Values.image.organization }}/{{ .Chart.Name }}-{{ .Values.branch }}:{{ .Values.buildNumber }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.service.internalPort }}

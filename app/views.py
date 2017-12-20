@@ -5,4 +5,4 @@ import datetime
 @app.route('/index')
 def index():
 	timestamp = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-	return timestamp + " Hello, World! v3.0\n"
+	return timestamp + " Hello, World! v4.0\n"
